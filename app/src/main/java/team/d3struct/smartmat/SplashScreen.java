@@ -7,6 +7,7 @@ import android.view.Window;
 
 public class SplashScreen extends AppCompatActivity {
 
+    //imAysha
     //BluetoothServ bluetoothServ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
