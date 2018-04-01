@@ -9,8 +9,10 @@ public class SplashScreen extends AppCompatActivity {
 
     //imAysha
     //BluetoothServ bluetoothServ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
@@ -26,10 +28,11 @@ public class SplashScreen extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+
                 }
             }
         };
         myThread.start();
     }
+
 }
