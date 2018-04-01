@@ -16,7 +16,6 @@ public class SignIn extends AppCompatActivity {
         //firebase
         mAuth = FirebaseAuth.getInstance();
 
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
     }
@@ -33,4 +32,5 @@ public class SignIn extends AppCompatActivity {
         Intent intent = new Intent(this, Home.class);
         this.startActivity ( intent );
     }
+
 }
