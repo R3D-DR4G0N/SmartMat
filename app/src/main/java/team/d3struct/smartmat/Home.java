@@ -37,8 +37,8 @@ public class Home extends AppCompatActivity
         TextView nav_header_title = (TextView) mHeaderView.findViewById(R.id.nav_txt_nav_header_title);
         TextView nav_header_subtitle = (TextView) mHeaderView.findViewById(R.id.nav_txt_nav_header_subtitle);
 
-        nav_header_title.setText("Test Company Name, LLC");//Set header text to the users name
-        nav_header_subtitle.setText("Test Company Name, LLC");//Set sub_header text to the users email
+        nav_header_title.setText("Timeth Subasinghe");//Set header text to the users name
+        nav_header_subtitle.setText("timethsws@gmail.com");//Set sub_header text to the users email
     }
 
     @Override
