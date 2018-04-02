@@ -23,7 +23,7 @@ public class SplashScreen extends AppCompatActivity {
                 try {
                     sleep(3000);
                     //bluetoothServ.bluetooth();
-                    Intent intent = new Intent(getApplicationContext(),Home.class);
+                    Intent intent = new Intent(getApplicationContext(),SignIn.class);
                     startActivity(intent);
                     finish();
                 } catch (InterruptedException e) {
