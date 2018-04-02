@@ -25,7 +25,7 @@ public class SignIn extends AppCompatActivity {
     private Button btn_SignIn;
     private Button btn_SignUp;
 
-    String email = txt_email.getText().toString().trim();
+
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
@@ -46,8 +46,9 @@ public class SignIn extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        FirebaseUser currentUser = mAuth.getCurrentUser();
-                        updateUI(currentUser);
+                        String email = txt_email.getText().toString().trim();
+                        String password = txt_password.getText().toString();
+                        signIn(email,password);
                     }
                 }
         );
@@ -59,47 +60,47 @@ public class SignIn extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
+
+
     }
 
     private void updateUI(FirebaseUser currentUser) {
 
-        if (currentUser == null) {
-
-        } else {
+        if (currentUser != null) {
             Intent intent = new Intent(this, Home.class);
             this.startActivity ( intent );
         }
     }
     //public Task<AuthResult>SignInWithEmailAndPassword(String email, String password){}
 
-    private void signIn(String emailAddress, String password){
+    private void signIn(String email, String password) {
+
         if (email.matches(emailPattern) && email.length() > 0) {
-            Toast.makeText(getApplicationContext(),"Hell+o Friend",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Hell+o Friend", Toast.LENGTH_SHORT).show();
             //todo : Proceed sign in
-        }else {
-            Toast.makeText(getApplicationContext(),"Invalid email address",Toast.LENGTH_SHORT).show();
-        }
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                //Log.d(TAG, "signInWithEmail:success");
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                updateUI(user);
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                //Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                Toast.makeText(SignIn.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
+                                updateUI(null);
+                            }
 
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            //Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(SignIn.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
+                            // ...
                         }
-
-                        // ...
-                    }
-                });
+                    });
+        } else {
+            Toast.makeText(getApplicationContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
