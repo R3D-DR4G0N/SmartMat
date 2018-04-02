@@ -21,7 +21,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    sleep(1000);
+                    sleep(3000);
                     //bluetoothServ.bluetooth();
                     Intent intent = new Intent(getApplicationContext(),Home.class);
                     startActivity(intent);
