@@ -36,10 +36,9 @@ public class SignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        txt_email = (EditText)findViewById(R.id.txt_username);
-        txt_password = (EditText)findViewById(R.id.txt_email);
+        txt_email = (EditText)findViewById(R.id.txt_signin_username);
+        txt_password = (EditText)findViewById(R.id.txt_signin_password);
         btn_SignIn = (Button)findViewById(R.id.btn_SignIn);
-        //btn_SignUp = (Button)findViewById(R.id.btn_SignUp);
 
         btn_SignIn.setOnClickListener(
                 new View.OnClickListener() {

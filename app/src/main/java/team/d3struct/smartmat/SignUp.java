@@ -42,11 +42,11 @@ public class SignUp extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        txt_username=(EditText)findViewById(R.id.txt_username);
-        txt_email=(EditText)findViewById(R.id.txt_email);
-        txt_password=(EditText)findViewById(R.id.txt_email);
-        txt_weight=(EditText)findViewById(R.id.txt_age);
-        txt_age=(EditText)findViewById(R.id.txt_age);
+        txt_username=(EditText)findViewById(R.id.txt_signup_username);
+        txt_email=(EditText)findViewById(R.id.txt_signup_email);
+        txt_password=(EditText)findViewById(R.id.txt_signin_password);
+        txt_weight=(EditText)findViewById(R.id.txt_signup_weight);
+        txt_age=(EditText)findViewById(R.id.txt_signin_username);
         RadioGroup01 = (RadioGroup) findViewById(R.id.RadioGroup01);
         btn_signup= findViewById(R.id.btn_signup);
         checkBox=(CheckBox)findViewById(R.id.checkBox);
