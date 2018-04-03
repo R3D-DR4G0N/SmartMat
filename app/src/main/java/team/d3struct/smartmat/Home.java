@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -37,6 +38,7 @@ public class Home extends AppCompatActivity
     public static BluetoothSocket sock ;
     private BluetoothAdapter mBtAdapter;
 
+    CardView start_exercise;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,16 @@ public class Home extends AppCompatActivity
                 }
             }
         });
+
+        start_exercise = findViewById(R.id.card_view_start);
+
+        start_exercise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onStartClicked();
+            }
+        });
+
     }
 
     @Override
