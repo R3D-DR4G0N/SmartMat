@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -17,9 +16,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends AppCompatActivity{
+    //Authentication
     private FirebaseAuth mAuth;
+
+    //Database
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef;
 
     private EditText txt_username;
     private EditText txt_email;
@@ -36,9 +42,9 @@ public class SignUp extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        txt_username=(EditText)findViewById(R.id.txt_email);
-        txt_email=(EditText)findViewById(R.id.txt_password);
-        txt_password=(EditText)findViewById(R.id.txt_password);
+        txt_username=(EditText)findViewById(R.id.txt_username);
+        txt_email=(EditText)findViewById(R.id.txt_email);
+        txt_password=(EditText)findViewById(R.id.txt_email);
         txt_weight=(EditText)findViewById(R.id.txt_age);
         txt_age=(EditText)findViewById(R.id.txt_age);
         RadioGroup01 = (RadioGroup) findViewById(R.id.RadioGroup01);
