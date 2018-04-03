@@ -44,8 +44,8 @@ public class SignUp extends AppCompatActivity{
 
         txt_username=(EditText)findViewById(R.id.txt_username);
         txt_email=(EditText)findViewById(R.id.txt_email);
-        txt_password=(EditText)findViewById(R.id.txt_email);
-        txt_weight=(EditText)findViewById(R.id.txt_age);
+        txt_password=(EditText)findViewById(R.id.txt_password);
+        txt_weight=(EditText)findViewById(R.id.txt_weight);
         txt_age=(EditText)findViewById(R.id.txt_age);
         RadioGroup01 = (RadioGroup) findViewById(R.id.RadioGroup01);
         btn_signup= findViewById(R.id.btn_signup);
@@ -79,8 +79,9 @@ public class SignUp extends AppCompatActivity{
         }
     }
     public void createAccount (){
-        String email = txt_email.getText().toString();
-        String password= txt_email.getText().toString();
+        final String email = txt_email.getText().toString();
+        String password= txt_password.getText().toString();
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -89,6 +90,12 @@ public class SignUp extends AppCompatActivity{
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             //Log.d(TAG, "createUserWithEmail:success");
+                            myRef = database.getReference(email+"/username");
+                            myRef.setValue(txt_username.getText().toString());
+                            myRef = database.getReference(email+"/age");
+                            myRef.setValue(txt_username.getText().toString());
+                            myRef = database.getReference(email+"/username");
+                            myRef.setValue(txt_username.getText().toString());
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
 
