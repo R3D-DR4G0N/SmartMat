@@ -172,17 +172,15 @@ public class Exercise extends AppCompatActivity {
             try
             {
                 btSocket.close();
+
             } catch (IOException e2)
             {
-                //insert code to deal with this
+
             }
         }
         mConnectedThread = new ConnectedThread(btSocket);
         mConnectedThread.start();
 
-        //I send a character when resuming.beginning transmission to check device is connected
-        //If it is not an exception will be thrown in the write method and finish() will be called
-        //mConnectedThread.write("x");
     }
 
     @Override
