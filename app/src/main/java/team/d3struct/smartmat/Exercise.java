@@ -58,7 +58,6 @@ public class Exercise extends AppCompatActivity {
         chronometer = findViewById(R.id.chronometer_exercise);
         btn_main = findViewById(R.id.btn_exercise_main);
         btn_reset = findViewById(R.id.btn_exercise_reset);
-        txt_timer = findViewById(R.id.txt_exercise_timer);
         txt_reps = findViewById(R.id.txt_exercise_reps);
 
         btn_main.setOnClickListener(new View.OnClickListener() {
@@ -104,12 +103,9 @@ public class Exercise extends AppCompatActivity {
                             p.newDataSet(data);
 
                         }
-                        recDataString.delete(0, recDataString.length());                    //clear all string data
+                        recDataString.delete(0, recDataString.length());                  //clear all string data
 
                     }
-                }
-                else{
-
                 }
             }
         };
