@@ -16,7 +16,7 @@ public class ExerciseOnScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_on_screen);
 
-        chronometer=findViewById(R.id.chronometer);
+        chronometer=findViewById(R.id.chronometer_exercise);
     }
 
     public void startChronometer(View v){
